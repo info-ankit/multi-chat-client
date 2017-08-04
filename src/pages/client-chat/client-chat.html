@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar hideBackButton>
+    <ion-buttons left>
+      <button ion-button navPop icon-only>
+        <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+        <!-- <span style="font-size:1.0em;"> Home</span> -->
+      </button>
+    </ion-buttons>
+    <ion-title>{{ groupInformation?.title }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="chatPage">
+  <ion-list>
+	  <ion-item text-wrap *ngFor="let message of chats">
+      <ion-avatar item-start class="img-placeholder"> 
+        <img src="https://cdn2.iconfinder.com/data/icons/avatar-profile/421/avatar_user_default_cardigan_contact-128.png"> 
+      </ion-avatar>
+      <h2 style="color: cadetblue">Chat Impressico <p style="font-size:12px; float:right; margin-top:4px;">{{ message.c_date | date:'MMM dd, yyyy h:mma' }}</p></h2>
+      <p>{{message.msg}}</p>
+    </ion-item>
+  </ion-list>
+  <!--<ion-item no-line>
+    <ion-label floating>Enter a message</ion-label>
+    <ion-input type="text" [(ngModel)]="chatinp"></ion-input>
+  </ion-item>
+  <button ion-button outline block color="dark" (click)="send(chatinp)">Send</button>-->
+</ion-content>
+
+<ion-footer class="chatPageFooter">
+  <ion-toolbar>
+    <ion-item>
+      <ion-label style="margin:0px;"></ion-label>
+      <div item-content style="width:100%;">
+        <ion-textarea placeholder="Type to compose" lineHeight="22" [(ngModel)]="chatinp"></ion-textarea>
+      </div>
+    </ion-item>
+
+    <ion-buttons right>
+      <button style="min-width:45px;" (click)="pushMessage(chatinp, groupInformation)">
+        <ion-icon name="send"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

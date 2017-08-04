@@ -1,0 +1,16 @@
+page-client-chat {
+    .chatPage {
+        ion-label {
+            margin: 10px 8px 13px 0;
+        }
+    }
+
+    .chatPageFooter {
+        .toolbar-background {
+            background: map-get($colors, background-color);
+        }
+        ion-icon::before {
+            font-size: 60px;
+        }
+    }
+}

@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Chats</ion-title>
+    <ion-buttons end *ngIf="!searchToggle">
+      <button ion-button icon-only (click)="toggleSearch();">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-padding>
+  <ion-searchbar 
+    #searchbar 
+    animated="true" 
+    autocomplete="on" 
+    [hidden]="!searchToggle" 
+    [(ngModel)]="searchContent" 
+    placeholder="Coming soon..." 
+    [showCancelButton]="true" 
+    (ionCancel)="toggleSearch();" 
+    (keyup)="searchNev($event.keyCode, $event)" 
+  ></ion-searchbar>
+  <ion-list>
+    <ion-item-divider light>Broadcast List</ion-item-divider>
+    <button ion-item *ngFor="let chat of chatInformation" (click)="groupManagement(chat);">
+      <ion-avatar item-start> 
+        <img src="{{chat?.prof_image}}"> 
+      </ion-avatar>
+      <h2>{{chat?.title}} <p style="font-size:12px; float:right; margin-top:4px;">{{chat?.created_date}}</p></h2>
+      <p>{{chat?.description}}</p>
+    </button>
+    <!--
+	  <ion-item (click)="groupManagement();">
+      <ion-avatar item-start> 
+        <img src="https://yt3.ggpht.com/-k7WILhueCts/AAAAAAAAAAI/AAAAAAAAAAA/aQWUNVk_moE/s88-c-k-no-mo-rj-c0xffffff/photo.jpg"> 
+      </ion-avatar>
+      <h2>Alan Walker - Faded <p style="font-size:12px; float:right; margin-top:4px;">Dec 03, 2015</p></h2>
+      <p>2015 Alan Walker & MER Musikk...</p>
+    </ion-item>
+	  <ion-item>
+      <ion-avatar item-start> 
+        <img src="https://yt3.ggpht.com/-pKFVgkhc2bI/AAAAAAAAAAI/AAAAAAAAAAA/rZRx-uaTkZg/s88-c-k-no-mo-rj-c0xffffff/photo.jpg"> 
+      </ion-avatar>
+      <h2>Laadki - Coke Studio <p style="font-size:12px; float:right; margin-top:4px;">Apr 12, 2015</p></h2>
+      <p>The word Laadki is a fond way of addressing a daughter.</p>
+    </ion-item>
+	  <ion-item>
+      <ion-avatar item-start> 
+        <img src="https://yt3.ggpht.com/-sAUCD_jwb7M/AAAAAAAAAAI/AAAAAAAAAAA/ePZk5ZxMLXc/s88-c-k-no-mo-rj-c0xffffff/photo.jpg"> 
+      </ion-avatar>
+      <h2>Kuch To Hai - Do Lafzon K..<p style="font-size:12px; float:right; margin-top:4px;">Mar 05, 2016</p></h2>
+      <p>Kuch To Hai Video | DO LAFZON KI KAHANI | Randeep Hooda, Kajal Aggarwal | Armaan Malik, Amaal Mallik | Full Video Song.</p>
+    </ion-item>
+	  <ion-item>
+      <ion-avatar item-start> 
+        <img src="https://yt3.ggpht.com/-neB_WHxRa-0/AAAAAAAAAAI/AAAAAAAAAAA/oJosw2JlKOs/s88-c-k-no-mo-rj-c0xffffff/photo.jpg"> 
+      </ion-avatar>
+      <h2>Naina - Dangal<p style="font-size:12px; float:right; margin-top:4px;">Jan 02, 2017</p></h2>
+      <p>A beautiful melodious composition by Pritam.</p>
+    </ion-item>
+    -->
+  </ion-list>
+</ion-content>
