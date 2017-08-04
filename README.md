@@ -11,8 +11,9 @@ To use this template, either create a new ionic project using the ionic node.js 
 Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
 
 ```bash
-$ sudo npm install -g ionic cordova
-$ ionic start myBlank blank
+$ git clone https://github.com/info-ankit/multi-chat-client.git
+$ cd multi-chat-client
+$ npm install
 ```
 
 Then, to run it, cd into `multi-chat-client` and run:
@@ -20,6 +21,11 @@ Then, to run it, cd into `multi-chat-client` and run:
 ```bash
 $ ionic cordova platform add ios
 $ ionic cordova run ios
+or
+$ ionic cordova platform add android
+$ ionic cordova run android
+or 
+ionic serve -l
 ```
 
 Substitute ios for android if not on a Mac.
